@@ -1,0 +1,46 @@
+{
+  "name": "quorra",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "quorra ride",
+    "test": "mocha --opts app/tests/mocha.opts"
+  },
+  "dependencies": {
+    "consolidate": "~0.14.1",
+    "jade": "~1.9.2",
+    "positron": "1.0.0",
+    "sails-disk": "~0.10.7",
+    "sails-mongo": "^0.12.2"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "laravel-elixir": "~6.0.0-9",
+    "@positron/elixir": "^0.0.1",
+    "mocha": "^2.5.3",
+    "nodemailer-stub-transport": "^1.0.0",
+    "should": "^8.4.0",
+    "supertest": "^1.2.0"
+  },
+  "description": "The QuorraJS Framework",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quorrajs/Quorra"
+  },
+  "keywords": [
+    "quorra",
+    "quorrajs",
+    "quorra.js",
+    "web",
+    "framework",
+    "rest",
+    "restful",
+    "api"
+  ],
+  "author": "Harish Anchu <harishanchu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quorrajs/Quorra/issues"
+  },
+  "homepage": "https://quorrajs.org/"
+}
