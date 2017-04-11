@@ -6,6 +6,7 @@ class EmployeeController extends BaseController {
 
 	static employeeList(req, response) {
 		let postInput = req.input.only('search', 'page', 'limit')
+		console.log('postInput')
 		let search_text = (postInput.search) ? postInput.search : null
 
 		let page = postInput.page
