@@ -5,12 +5,14 @@ let BaseController = require('./BaseController')
 class EmployeeController extends BaseController {
 
 	static employeeList(req, response) {
-		let postInput = req.input.only('search', 'page', 'limit')
+		let postInput = req.input.only('search', 'page', 'limit', 'type', 'filter_by')
 		let search_text = (postInput.search) ? postInput.search : null
 
 		let page = postInput.page
 		let current = (postInput.page) ? postInput.page : 1
 		let perPage = (postInput.limit) ? postInput.limit : 10
+		let filterBy = (postInput.filter_by) ? postInput.filter_by : 'createdAt'
+		let type = (postInput.type) ? postInput.type : 'ASC'
 		let skip = 0
 		if (page !== "") {
 			skip = perPage * (page-1)
@@ -43,12 +45,14 @@ class EmployeeController extends BaseController {
 		}
 
 		Employee.count(condition).then((total)=>{
-			Employee.find(condition, {limit:perPage, skip:skip, sort:{"createdAt": -1}}).then(data => {
+			Employee.find(condition, {limit:perPage, skip:skip, sort:`${filterBy} ${type}`}).then(data => {
 
 				response.status(200).send({
 					"response": data,
 					"pagination": {
 						"search": search_text,
+						"filter_by": filterBy,
+						 "type": type,
 						"page": current,
 						"per_page": perPage,
 						"total": total
